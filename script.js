@@ -6,7 +6,7 @@ let gamesPlayed = 0;
 let startContainer = document.getElementById('startcontainer');
 let btn = document.querySelector("#startbutton");
 
-btn.addEventListener('click', function(){
+btn.addEventListener('click', () => {
     startContainer.style.opacity = 0;
     startContainer.style.transform = 'scale(0)';
     window.setTimeout(function(){
@@ -26,7 +26,7 @@ function hideEndContainerShowWinner() {
     bottomContainer.style.display = 'block';
 }
 
-btn.addEventListener('click', function(){
+btn.addEventListener('click', () => { 
     startContainer.style.opacity = 0;
     startContainer.style.transform = 'scale(0)';
     // Add timeout with length matching animation-duration 
@@ -35,14 +35,7 @@ btn.addEventListener('click', function(){
     },700); 
 });
 
-btn.addEventListener('click', function(){
-    startContainer.style.opacity = 0;
-    startContainer.style.transform = 'scale(0)';
-    // Add timeout with length matching animation-duration 
-    window.setTimeout(function(){
-        startContainer.style.display = 'none';
-    },700);
-})
+
 
 document.addEventListener("click", selectionListener);
 function selectionListener(event) 
@@ -77,17 +70,11 @@ function selectionListener(event)
                     }
 }
 
-function cpuPick() {
-    let choices = ["rock", "paper", "scissors"];
-    let choice = choices[Math.floor(Math.random() * choices.length)];
-
-    return choice
-}
 
 function playRound(playerChoice) {
     let computerChoice = cpuPick();
-    // let winText = `You win! ${playerChoice} beats ${computerChoice}`;
-    // let loseText = `You Lose! ${computerChoice} beats ${playerChoice}`;
+    let winText = `You win! ${playerChoice} beats ${computerChoice}`;
+    let loseText = `You Lose! ${computerChoice} beats ${playerChoice}`;
     
     const rockSelected = document.querySelector("#rockdiv");
     const paperSelected = document.querySelector("#paperdiv")
@@ -132,17 +119,17 @@ function playRound(playerChoice) {
         (playerChoice === 'scissors' && computerChoice === 'paper')) {
 
             playerScore++;
-            //console.log(winText);
+            const output = document.getElementById("showResult").innerHTML = winText;
             const currentPlayerScore = document.querySelector("#playerscore").innerHTML = `Score: ${playerScore}`
             const currentComputerScore = document.querySelector("#computerscore").innerHTML = `Score: ${computerScore}`
             scoreTracker()
         } else if (playerChoice === computerChoice) {
-            //console.log("its a tie");
+            const output = document.getElementById("showResult").innerHTML = "its a tie";
             const currentPlayerScore = document.querySelector("#playerscore").innerHTML = `Score: ${playerScore}`
             const currentComputerScore = document.querySelector("#computerscore").innerHTML = `Score: ${computerScore}`
         } else {
             computerScore++;
-            //console.log(loseText);
+            const output = document.getElementById('#showResult').innerHTML = loseText;
             const currentPlayerScore = document.querySelector("#playerscore").innerHTML = `Score: ${playerScore}`
             const currentComputerScore = document.querySelector("#computerscore").innerHTML = `Score: ${computerScore}`
         }
@@ -153,8 +140,6 @@ function playRound(playerChoice) {
     //console.log("player wins:"+playerScore)
     //console.log("cpu wins:"+computerScore)
 }
-
-
 
 function scoreTracker(playerScore, computerScore) {
 
@@ -184,6 +169,13 @@ function scoreTracker(playerScore, computerScore) {
              robotWinLogo.style.display = 'block';
          }   
      }
+}
+
+function cpuPick() {
+    let choices = ["rock", "paper", "scissors"];
+    let choice = choices[Math.floor(Math.random() * choices.length)];
+
+    return choice
 }
 
 

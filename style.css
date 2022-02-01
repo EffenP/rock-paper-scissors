@@ -2,7 +2,7 @@ body {
     /* Main background image with styling */
     background-image: url("imgs/background.jpg");
     height: 100%;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Short Stack', cursive;
 }
 
 html,body{
@@ -13,16 +13,15 @@ html,body{
   }
 
 #startbutton {
-    min-width:100px;
-    height:50px;
+    min-width:200px;
+    height:100px;
     margin-bottom: 150px;
     text-transform: uppercase;
     padding: 15px;
     border: none;
     outline: none;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 400px;
-    font-size: 20px;
+    font-size: 30px;
     border-radius: 3px;
     box-shadow: 4px 5px 0px;
     border-bottom: 2px solid;
@@ -119,13 +118,13 @@ html,body{
 }
 
 .topcontainer {
-    color: red;
+    color: rgb(121, 135, 233);
     font-size: xx-large;
 }
 
 .bottomcontainer {
     display: none;
-    color: red;
+    color: rgb(121, 135, 233);
     width: 100%;
     text-align: center;
 }
